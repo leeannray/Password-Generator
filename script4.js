@@ -1,3 +1,6 @@
+// Prompt
+window.onload = alert("Welcome! Please click 'Generate password' to start!");
+
 //create variables for all elements to be manipulated by javascript
 var passwordEl = document.querySelector("#password");
 var btngenerateEl = document.querySelector("#generate");
