@@ -50,3 +50,5 @@ WHEN prompted for password criteria
 
 THEN a password is generated
 
+Password Generator
+- Used //http://www.net-comber.com/charset.html as source of broswer character set to generate random letters and numbers based on char code
