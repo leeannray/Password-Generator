@@ -10,7 +10,7 @@ const get = document.querySelector("#generateBtn");
 // Add click event for generateBtn
 get.addEventListener("click", function() {
   let password = finalPassword;
-  document.getElementById("generateBtn").placeholder = password;
+  document.getElementById("password").text = password;
 });
 
 const randomPass = {
