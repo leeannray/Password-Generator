@@ -1,3 +1,4 @@
+// Declare global variables
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
 const lowercaseEl = document.getElementById("lowercase");
@@ -6,9 +7,10 @@ const symbolsEl = document.getElementById("symbols");
 
 const get = document.querySelector("#generateBtn");
 
+// Add click event for generateBtn
 get.addEventListener("click", function() {
   let password = finalPassword;
-  document.getElementById("password").placeholder = password;
+  document.getElementById("generateBtn").placeholder = password;
 });
 
 const randomPass = {
