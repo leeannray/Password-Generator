@@ -7,27 +7,19 @@ const symbolsEl = document.getElementById("symbols");
 const pass = document.getElementById("password");
 
 const generateBtnEl = document.querySelector("#generateBtn");
-
-// Add click event for generateBtn
-  pass.innerText = generatePassword(
-    hasLower,
-    hasUpper,
-    hasNumber,
-    hasSymbol,
-    length,
-  );
-
+//initialize generatedpassword
+let generatedPassowrd = '';
 
 // generate password function
 // generator functions: http://www.net-comber.com/charset.html
-function generatedPassword(lower, upper, number, symbol, length) {
-  // init password variable
-  let generatedPassword = "";
+function generatePassword(lower, upper, number, symbol, length) {
 
   //counts number of checked values
   const typeCount = lower + upper + number + symbol;
   // filter out unchecked types from array of vars
   // create array of objects to get value of checked settings
+  // init password variable
+  let generatedPassword = "";
   const typeArr = [{ lower }, { upper }, { number }, { symbol }].filter(
     item => Object.values(item)[0]
     //if unchecked it will return value of false and will be filtered out
@@ -45,6 +37,12 @@ function generatedPassword(lower, upper, number, symbol, length) {
       generatedPassword += randomPass[fName]();
     });
   }
+  //slice off length. Create variable for finalPassword
+  const finalPassword = generatedPassword.slice(0, length);
+
+  return finalPassword;
+  //from generatedpassword function
+  pass.textContent = finalPassword;
 }
 
 // create object of functions getRandomLower, getRandomUpper, etc.
@@ -56,7 +54,7 @@ const randomPass = {
 };
 
   // + = alternative to parseInt function (returns number from string)
-
+// generate event listen
 generateBtnEl.addEventListener("click", () => {
   const length = +lengthEl.value;
   const hasLower = lowercaseEl.checked;
@@ -64,20 +62,16 @@ generateBtnEl.addEventListener("click", () => {
   const hasNumber = numbersEl.checked;
   const hasSymbol = symbolsEl.checked;
 
-
-    return generatePassword;
+  // add characters to password
+  pass.innerText = generatePassword(
+    hasLower,
+    hasUpper,
+    hasNumber,
+    hasSymbol,
+    length,
+  )
 });
 
-
-
-  // If no selections are made in settings
-
-
-
-
-  const finalPassword = generatedPassword.slice(0, length);
-
-  return finalPassword;
 
 
 // get random letters and numbers (26 = number of letters in alphabet)
